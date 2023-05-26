@@ -200,10 +200,10 @@ nav ul li a:hover,
 }
 
 .explain-container {
-  position: sticky;
+  position: fixed;
   top: 20rem;
+  left: 50%;
   width: 50%;
-  float:right;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;

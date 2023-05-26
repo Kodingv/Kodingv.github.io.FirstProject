@@ -59,21 +59,28 @@ getItem.forEach((value) => {
 
 // Scroll 기능
 $(window).on('scroll', () => {
-  let yValue = window.scrollY;
-  if(yValue < 250) {
+  // 웹페이지 실제높이 - 웹페이지 보이는 높이
+  let height = document.querySelector('html').scrollHeight - document.querySelector('html').clientHeight;
+  // 현재 웹페이지 스크롤 양
+  let yValue = document.querySelector('html').scrollTop;
+
+  if(yValue < (height / 3 - 10)){
+    console.log(1);
     $('.explain').html(`Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Nam congue tortor eget pulvinar lobortis. Vestibulum ante
     ipsum primis in faucibus orci luctus et ultrices posuere
     cubilia Curae; Nam ac dolor augue. Pellentesque mi mi, laoreet
     et dolor sit amet, ultrices varius risus. Nam vitae iaculis elit.
     Aliquam mollis interdum libero. Sed sodales placerat egestas.`);
-  } else if(yValue >= 250 && yValue < 630) {
+  } else if(yValue >= (height / 3 - 10) && (yValue <= height / 3 * 2 - 10)){
+    console.log(2);
     $('.explain').html(`The HyperText Markup Language or HTML is the standard markup 
     language for documents designed to be displayed in a web browser. It is often assisted 
     by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.
     Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. 
     HTML describes the structure of a web page semantically and originally included cues for its appearance.`);
-  } else if(yValue >= 630) {
+  } else if(yValue > (height / 3 * 2 - 10)){
+    console.log(3);
     $('.explain').html(`CSS is designed to enable the separation of content and presentation, including layout, colors, and fonts.
     [3] This separation can improve content accessibility; provide more flexibility and control in the specification of presentation characteristics; 
     enable multiple web pages to share formatting by specifying the relevant CSS in a separate .css file, 
